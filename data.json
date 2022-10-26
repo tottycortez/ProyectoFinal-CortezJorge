@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "cantidad": 1,
+        "pelicula": "Star Wars Episodio IV: Una Nueva Esperanza (1977)",
+        "img": "./img/Una Nueva Esperanza.jpg",
+        "descripcion": "Año galáctico: 0 BBY/ABY. La nave en la que viaja la princesa Leia es capturada por las tropas imperiales al mando del temible Darth Vader. Antes de ser atrapada, Leia consigue introducir un mensaje en su robot R2-D2, quien acompañado de su inseparable C-3PO logra escapar. Tras aterrizar en el planeta Tattooine son capturados y vendidos al joven Luke Skywalker, quien descubrirá el mensaje oculto que va destinado a Obi Wan Kenobi, maestro Jedi a quien Luke debe encontrar para salvar a la princesa.",
+        "precio": 500
+    },
+    {
+        "id": 2,
+        "cantidad": 1,
+        "pelicula": "Star Wars Episodio V: El Imperio Contraataca (1980)",
+        "img": "./img/El Imperio Contraataca.jpg",
+        "descripcion": "Año galáctico: 3 ABY. Aunque la Estrella de la Muerte ha sido destruida, las tropas imperiales han hecho salir a las fuerzas rebeldes de sus bases ocultas y los persiguen a través de la galaxia. Mientras, el grupo de rebeldes de Skywalker se esconde en un planeta helado.",
+        "precio": 1000
+    },
+    {
+        "id": 3,
+        "cantidad": 1,
+        "pelicula": "Star Wars Episodio VI: El Retorno del Jedi (1983)",
+        "img": "./img/El Retorno del Jedi.jpg",
+        "descripcion": "Año galáctico: 4 ABY. Luke Skywalker, ahora un experimentado caballero Jedi, intenta descubrir la identidad de Darth Vader.",
+        "precio": 1500
+    }
+]
