@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(156, 72, 72)  
+}
+
+h1, h2 {
+    width: 100%;
+    text-align: center;
+    color:rgb(195, 195, 195);
+    font-size: 40px;
+}
+
+p {
+    display: none;
+    color: rgb(52, 52, 222);
+}
+
+.show {
+    display: block;
+    font-size: 35px;
+    text-align: center;
+}
+
+div {
+    margin: 100px;
+    text-align: center;
+}

@@ -123,3 +123,6 @@ margin-top: 20px;
 .eliminarProducto, .sumar, .restar, .finalizar {
     cursor: pointer;
 }
+#cerrarSesion {
+    text-align: end;
+}

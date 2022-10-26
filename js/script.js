@@ -1,6 +1,7 @@
 const lista = document.querySelector("#productos")
 const verCarrito = document.querySelector("#imgCarrito")
 const modal = document.querySelector("#modalContainer")
+let btnCerrarSesion = document.querySelector("#cerrarSesion button")
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
@@ -59,7 +60,7 @@ const pintarCarrito = () => {
     const modal = document.createElement("div")
     modal.className = "modalHeader"
     modal.innerHTML = `
-    <h1 class= "modalTitulo">Carrito</h1>
+    <h1 class= "modalTitulo">Carrito de ${nombre}</h1>
     `
     modalContainer.append(modal)
 
@@ -122,7 +123,6 @@ const pintarCarrito = () => {
     `
     modalContainer.append(totalCompra)
 
-
     //Boton para Finalizar la Compra
     const finalizarCompra = document.createElement("button")
     finalizarCompra.className = "finalizar"
@@ -139,9 +139,10 @@ const realizarCompra = () => {
     if (carrito != "") {
         Swal.fire(
             'Compra Realizada con Éxito',
-            'Muchas gracias "nombre" por su compra',
+            `Muchas gracias ${nombre} por su compra`,
             'success'
         )
+        localStorage.removeItem("carrito")
     } else {
         Swal.fire(
             'Error en la compra!',
@@ -165,3 +166,19 @@ const eliminarProductoCarrito = () => {
 const guardarCarrito = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
+
+/// Traigo los valores que lleve al local
+const traerUsuarioPagina = localStorage.getItem("datos")
+//console.log(JSON.parse(traerUsuarioPagina))
+/// El nuevo array que traigo con los datos que se guardaron
+const usuarioCorrecto = JSON.parse(localStorage.getItem("datos"))
+//console.log(usuarioCorrecto)
+
+//Desestructuracion del objeto que traigo
+const {nombre} = usuarioCorrecto
+
+//Evento para volver al inicio de pagina
+btnCerrarSesion.addEventListener("click",()=> {
+    localStorage.removeItem("carrito")
+    location.href = "index.html"
+})
