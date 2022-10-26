@@ -121,9 +121,35 @@ const pintarCarrito = () => {
     Total a pagar: $${total}
     `
     modalContainer.append(totalCompra)
+
+
+    //Boton para Finalizar la Compra
+    const finalizarCompra = document.createElement("button")
+    finalizarCompra.className = "finalizar"
+    finalizarCompra.innerHTML = `
+    Finalizar Compra
+    `
+    modalContainer.append(finalizarCompra)
+    finalizarCompra.addEventListener("click", realizarCompra)
 }
 
 verCarrito.addEventListener("click", pintarCarrito)
+
+const realizarCompra = () => {
+    if (carrito != "") {
+        Swal.fire(
+            'Compra Realizada con Éxito',
+            'Muchas gracias "nombre" por su compra',
+            'success'
+        )
+    } else {
+        Swal.fire(
+            'Error en la compra!',
+            'Debe tener productos en el Carrito',
+            'error'
+        )
+    }
+}
 
 const eliminarProductoCarrito = () => {
     //Capturo el Id que deseo Eliminar

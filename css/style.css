@@ -119,7 +119,7 @@ margin-top: 20px;
     padding-top: 20px;
 }
 
-/*Boton Eliminar Producto, Sumar Producto, Restar Producto*/
-.eliminarProducto, .sumar, .restar {
+/*Boton Eliminar Producto, Sumar Producto, Restar Producto, Finalizar Compra*/
+.eliminarProducto, .sumar, .restar, .finalizar {
     cursor: pointer;
 }
