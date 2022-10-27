@@ -7,7 +7,7 @@ class Usuario {
 }
 
 // VARIABLES GBLOBALES /////////////////////////
-const usuarios = []
+const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
 // DOM .//////////////////////////////
 let btnAcceso = document.querySelector("#acceso button")
