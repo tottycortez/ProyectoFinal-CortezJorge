@@ -1,4 +1,4 @@
-// CLASES ////////////////////////
+// Clases para crear los Usuarios
 class Usuario {
     constructor(nombre,pass) {
         this.nombre = nombre
@@ -6,21 +6,14 @@ class Usuario {
     }
 }
 
-// VARIABLES GBLOBALES /////////////////////////
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
-// DOM .//////////////////////////////
 let btnAcceso = document.querySelector("#acceso button")
-
 let inputsLogueo = document.querySelectorAll("#logueo input")
 let inputsAcceso = document.querySelectorAll("#acceso input")
 let alerta = document.querySelectorAll("p")
-
-
 let btnCrearUsuario = document.querySelector("#btn-alert")
 
-
-// EVENTOS .//////////////////////////////
 //evento para crear usuario
 btnCrearUsuario.addEventListener("click", () => {
     Swal.fire({
@@ -43,7 +36,7 @@ btnCrearUsuario.addEventListener("click", () => {
           Contraseña: ${result.value.password}
         `.trim())
 
-
+        //Creo las variables con los valores tomados en el logueo
         let nombreCreado = result.value.login
         let passCreado = result.value.password
 
@@ -51,20 +44,18 @@ btnCrearUsuario.addEventListener("click", () => {
         usuarios.push(nuevoUsuario)
         console.log(usuarios)
 
-        /// TRANSFORMO LOS VALORES DEL ARRAY EN JSON
+        //Transformo los Valores del Array en JSON
         const usuariosStr = JSON.stringify(usuarios)
-        /// LO SETEO EN EL LOCAL STORAGE
+        //Lo Seteo en el Local Storage
         localStorage.setItem("usuarios", usuariosStr)
     })
 })
 
-
-    /// TRAIGO LOS VALORES QUE LLEVE AL LOCAL
+    //Traigo los valores que lleve al LocalStorage
     const traerUsuarios = localStorage.getItem("usuarios")
-    // console.log(JSON.parse(traerUsuarios))
-    /// EL NUEVO ARRAY QUE TRAGIO CON LOS DATOS QUE SE GUARDARON
+    
+    //El Nuevo Array que traigo con los Datos que se Guardaron
     const usuariosArrays = JSON.parse(localStorage.getItem("usuarios"))
-    //console.log(traerUsuarios)
 
 //evento para ingresar usuario
 btnAcceso.addEventListener("click",()=> {
@@ -75,7 +66,7 @@ btnAcceso.addEventListener("click",()=> {
     let usuario = usuariosArrays.find((elem) => {
         return elem.nombre === nombre}
     )
-    //DESESTRUCTURACION DEL OBJETO QUE TRAIGO
+    //Desestructuracion del Objeto que Traigo
     const {pass:passUsuario} = usuario
     
     // verifico que los datos sean correctos
@@ -84,12 +75,9 @@ btnAcceso.addEventListener("click",()=> {
         return
     }
 
-
-    // ANTES DE REDIRIGIR CON LOCATION
-    // Tengo que guardar en storage para pasarle info al otro html
+    //Antes de Redirigir con Location Tengo que guardar en Storage para pasarle info al otro html
     const usuarioPagina = JSON.stringify(usuario)
     localStorage.setItem("datos", usuarioPagina)
-
 
     location.href = "paginaEshop.html"
     console.log("Ingreso correcto");

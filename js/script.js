@@ -85,6 +85,7 @@ const pintarCarrito = () => {
         <p>Cantidad: ${producto.cantidad}</p>
         <span class="sumar"> ➕ </span>
         <p>Total: ${producto.cantidad * producto.precio}
+        <span class="eliminarProducto"> ❌ </span>
         `
         modalContainer.append(carritoContent)
 
@@ -106,12 +107,11 @@ const pintarCarrito = () => {
             pintarCarrito()
         })
 
-        // Creo el Boton para Eliminar el Producto del Carrito
-        let eliminar = document.createElement("span")
-        eliminar.innerText = "❌"
-        eliminar.className = "eliminarProducto"
-        carritoContent.append(eliminar)
-        eliminar.addEventListener("click", eliminarProductoCarrito)
+        //Evento para Eliminar Productos
+        let eliminar = carritoContent.querySelector(".eliminarProducto")
+        eliminar.addEventListener("click", () => {
+            eliminarProductoCarrito(producto.id)
+        })
     })
 
     //Consigo el total de la compra a traves del metodo reduce
@@ -152,9 +152,9 @@ const realizarCompra = () => {
     }
 }
 
-const eliminarProductoCarrito = () => {
+const eliminarProductoCarrito = (id) => {
     //Capturo el Id que deseo Eliminar
-    const buscarId = carrito.find((element) => element.id)
+    const buscarId = carrito.find((element) => element.id === id)
     //Filtro los productos del carrito, me retorna todos los elementos que no tenga el Id seleccionado
     carrito = carrito.filter((carritoId) => {
         return carritoId !== buscarId
