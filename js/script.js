@@ -167,10 +167,10 @@ const guardarCarrito = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-/// Traigo los valores que lleve al local
+// Traigo los valores que lleve al local
 const traerUsuarioPagina = localStorage.getItem("datos")
-//console.log(JSON.parse(traerUsuarioPagina))
-/// El nuevo array que traigo con los datos que se guardaron
+
+// El nuevo array que traigo con los datos que se guardaron
 const usuarioCorrecto = JSON.parse(localStorage.getItem("datos"))
 //console.log(usuarioCorrecto)
 
@@ -179,6 +179,7 @@ const {nombre} = usuarioCorrecto
 
 //Evento para volver al inicio de pagina
 btnCerrarSesion.addEventListener("click",()=> {
+    localStorage.removeItem("datos")
     localStorage.removeItem("carrito")
     location.href = "index.html"
 })

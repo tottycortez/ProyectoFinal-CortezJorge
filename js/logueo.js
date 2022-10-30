@@ -12,7 +12,7 @@ let btnAcceso = document.querySelector("#acceso button")
 let inputsLogueo = document.querySelectorAll("#logueo input")
 let inputsAcceso = document.querySelectorAll("#acceso input")
 let alerta = document.querySelectorAll("p")
-let btnCrearUsuario = document.querySelector("#btn-alert")
+let btnCrearUsuario = document.querySelector("#crearUsuario")
 
 //evento para crear usuario
 btnCrearUsuario.addEventListener("click", () => {
@@ -53,9 +53,7 @@ btnCrearUsuario.addEventListener("click", () => {
 
     //Traigo los valores que lleve al LocalStorage
     const traerUsuarios = localStorage.getItem("usuarios")
-    
-    //El Nuevo Array que traigo con los Datos que se Guardaron
-    const usuariosArrays = JSON.parse(localStorage.getItem("usuarios"))
+
 
 //evento para ingresar usuario
 btnAcceso.addEventListener("click",()=> {
@@ -63,15 +61,16 @@ btnAcceso.addEventListener("click",()=> {
     let nombre = inputsAcceso[0].value
     let pass = inputsAcceso[1].value
 
-    let usuario = usuariosArrays.find((elem) => {
+    let usuario = usuarios.find((elem) => {
         return elem.nombre === nombre}
-    )
-    //Desestructuracion del Objeto que Traigo
-    const {pass:passUsuario} = usuario
-    
+    )    
     // verifico que los datos sean correctos
-    if (usuario == undefined || pass != passUsuario) {
-        alertaP()
+    if (usuario == undefined || pass != usuario.pass) {
+        Swal.fire(
+            'Error al Ingresar!!',
+            'Debe tener un Nombre y Contraseña Logueado!!',
+            'error'
+        )        
         return
     }
 
@@ -82,11 +81,3 @@ btnAcceso.addEventListener("click",()=> {
     location.href = "paginaEshop.html"
     console.log("Ingreso correcto");
 })
-
-function alertaP() {
-    alerta.classList.add("show")
-
-    setTimeout(()=> {
-        alerta.classList.remove("show")
-    },2000)
-}
